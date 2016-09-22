@@ -141,6 +141,7 @@ void ompl::geometric::RRTXstatic::setup()
     else
     {
         OMPL_INFORM("%s: problem definition is not set, deferring setup completion...", getName().c_str());
+        opt_ = std::make_shared<base::PathLengthOptimizationObjective>(si_);
         setup_ = false;
     }
 
