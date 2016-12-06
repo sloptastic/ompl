@@ -515,10 +515,15 @@ ompl::base::PlannerStatus ompl::geometric::RRTXstatic::solve(const base::Planner
             }
 
             // Checking for approximate solution (closest state found to the goal)
-            if (goalMotions_.size() == 0 && distanceFromGoal < approximatedist)
+            //if (goalMotions_.size() == 0 && distanceFromGoal < approximatedist)
+            //{
+            //    approximation = motion;
+            //    approximatedist = distanceFromGoal;
+            //}
+            if (goalMotions_.size() == 0 && distanceFromGoal + motion->cost.value()/4 < approximatedist)
             {
                 approximation = motion;
-                approximatedist = distanceFromGoal;
+                approximatedist = distanceFromGoal + motion->cost.value()/4;
             }
         }
 
