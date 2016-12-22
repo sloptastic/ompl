@@ -520,10 +520,10 @@ ompl::base::PlannerStatus ompl::geometric::RRTXstatic::solve(const base::Planner
             //    approximation = motion;
             //    approximatedist = distanceFromGoal;
             //}
-            if (goalMotions_.size() == 0 && distanceFromGoal + motion->cost.value()/4 < approximatedist)
+            if (goalMotions_.size() == 0 && distanceFromGoal + motion->cost.value()/10 < approximatedist)
             {
                 approximation = motion;
-                approximatedist = distanceFromGoal + motion->cost.value()/4;
+                approximatedist = distanceFromGoal + motion->cost.value()/10;
             }
         }
 
